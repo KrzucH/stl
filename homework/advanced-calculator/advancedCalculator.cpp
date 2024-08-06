@@ -11,7 +11,7 @@ bool iskey(const char& key) {
 ErrorCode process(std::string input, double* output) {
     std::map<char, std::function<double(double, double)>> advCalc;
     std::string numberStr1;
-    std::string numberStr2;       
+    std::string numberStr2;
     char key;
     int counter{};
     int dotCounter{};
@@ -21,18 +21,19 @@ ErrorCode process(std::string input, double* output) {
     advCalc['/'] = [](auto a, auto b) -> double { return a / b; };
     advCalc['*'] = [](auto a, auto b) -> double { return a * b; };
     advCalc['%'] = [](auto a, auto b) -> double { return static_cast<int>(a) % static_cast<int>(b); };
-    advCalc['!'] = [](auto a, auto b) -> double { if (a < 0) {
-                                                     a = -a;
-                                                     a = std::tgamma(a + 1);
-                                                     return -a;
-                                                  } else {
-                                                     return std::tgamma(a + 1);
-                                                  };
-                                                };
+    advCalc['!'] = [](auto a, auto b) -> double {
+        if (a < 0) {
+            a = -a;
+            a = std::tgamma(a + 1);
+            return -a;
+        } else {
+            return std::tgamma(a + 1);
+        };
+    };
     advCalc['^'] = [](auto a, auto b) -> double { return std::pow(a, b); };
     advCalc['$'] = [](auto a, auto b) -> double { return std::pow(a, 1 / b); };
 
-    if (input[0] == '-') {        
+    if (input[0] == '-') {
         numberStr1 += input[0];
     } else if (std::ispunct(input[0])) {
         return ErrorCode::BadFormat;
