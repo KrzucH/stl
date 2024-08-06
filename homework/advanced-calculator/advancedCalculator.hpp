@@ -1,7 +1,9 @@
 #include <iostream>
+#include <algorithm>
 #include <map>
 #include <functional>
 #include <cmath>
+#include <string>
 // Wszystkie komendy kalkulatora powinny być przechowywane w mapie, która jako klucz przechowuje znak `char` odwołujący się do konkretnej komendy (np. `+` -> dodaj , `%` -> modulo), a jako wartości `std::function<>` będące wraperem na wyrażenia lambda dokonujące określonej kalkulacji.
 
 // Program powinien także zwracać odpowiedni kod błędu, jeżeli użytkownik poda złe dane. Np. dzielenie przez `0` lub spróbuje dodać `ala + 5`.

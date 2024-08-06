@@ -145,7 +145,7 @@ TEST(advancedCalculatorTest, ShouldReturnBadFormat) {
     ASSERT_EQ(process("+8 - 32.1", &result), ErrorCode::BadFormat);
     ASSERT_EQ(process("12 ^% 3", &result), ErrorCode::BadFormat);
     ASSERT_EQ(process("+ 3 4", &result), ErrorCode::BadFormat);
-    ASSERT_EQ(process("12.4.3 + 12.3", &result), ErrorCode::BadFormat);
+    ASSERT_EQ(process("12.4 + 12.3.4", &result), ErrorCode::BadFormat);
     ASSERT_EQ(process("123.4 ! 345", &result), ErrorCode::BadFormat);
 }
 
